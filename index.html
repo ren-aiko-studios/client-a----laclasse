@@ -1,375 +1,335 @@
 <!DOCTYPE html>
-<html lang="" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LaClasse | Uncompromising Luxury & Private Aviation</title>
+    <title>La Classe | Luxury Fashion & Tailoring Atelier</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#0B0B0B',
-                        surface: '#141414',
-                        card: '#1C1C1C',
-                        champagne: {
-                            DEFAULT: '#D4AF37',
-                            light: '#E6C567',
-                            dark: '#AA8C2C'
+                        gold: {
+                            50: '#fbf8ee',
+                            100: '#f5edd3',
+                            200: '#ebd9a8',
+                            300: '#dfbe74',
+                            400: '#d4a34b',
+                            500: '#c28b32',
+                            600: '#a36d26',
+                            700: '#825221',
+                            800: '#6c4320',
+                            900: '#59371d',
                         },
-                        platinum: '#E5E4E2'
+                        obsidian: '#0f0f0f',
+                        charcoal: '#1a1a1a'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
                     }
                 }
             }
         }
     </script>
-    <style>
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0B0B0B;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #2A2A2A;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #D4AF37;
-        }
-    </style>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body class="bg-obsidian text-platinum font-sans antialiased selection:bg-champagne selection:text-obsidian">
+<body class="bg-obsidian text-neutral-100 font-sans selection:bg-gold-500 selection:text-obsidian">
 
     <!-- Header / Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-obsidian/80 backdrop-blur-md border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
-            <a href="#" class="font-serif text-2xl tracking-widest text-champagne uppercase font-bold">
-                La Classe
-            </a>
-            <nav class="hidden md:flex items-center space-x-10 text-sm tracking-widest uppercase">
-                <a href="#fleet" class="hover:text-champagne transition-colors duration-300">Aviation</a>
-                <a href="#yachts" class="hover:text-champagne transition-colors duration-300">Marine</a>
-                <a href="#concierge" class="hover:text-champagne transition-colors duration-300">Concierge</a>
-                <a href="#experience" class="hover:text-champagne transition-colors duration-300">Experience</a>
+    <header class="fixed top-0 left-0 w-full z-50 bg-obsidian/90 backdrop-blur-md border-b border-neutral-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="font-serif text-2xl md:text-3xl tracking-widest text-gold-400 uppercase">La Classe</a>
+            
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm tracking-widest uppercase">
+                <a href="#collections" class="hover:text-gold-400 transition-colors">Collections</a>
+                <a href="#services" class="hover:text-gold-400 transition-colors">Atelier Services</a>
+                <a href="#heritage" class="hover:text-gold-400 transition-colors">Heritage</a>
+                <a href="#contact" class="hover:text-gold-400 transition-colors">Contact</a>
             </nav>
-            <div>
-                <a href="#contact" class="hidden sm:inline-block px-6 py-3 border border-champagne text-champagne text-xs uppercase tracking-widest hover:bg-champagne hover:text-obsidian transition-all duration-300 font-medium">
-                    Request Access
+
+            <!-- Action -->
+            <div class="hidden md:flex items-center space-x-4">
+                <a href="https://wa.me/1234567890?text=Hello%20La%20Classe,%20I%20would%20like%20to%20inquire%20about%20your%20bespoke%20services." target="_blank" class="flex items-center space-x-2 bg-gold-500 hover:bg-gold-600 text-obsidian px-5 py-2.5 rounded-none font-semibold text-xs tracking-widest uppercase transition-all">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>WhatsApp Concierge</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-neutral-100 hover:text-gold-400 focus:outline-none">
+                <i data-lucide="menu" class="w-7 h-7"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-charcoal border-b border-neutral-800 px-6 py-6 space-y-4">
+            <a href="#collections" class="block text-sm tracking-widest uppercase hover:text-gold-400">Collections</a>
+            <a href="#services" class="block text-sm tracking-widest uppercase hover:text-gold-400">Atelier Services</a>
+            <a href="#heritage" class="block text-sm tracking-widest uppercase hover:text-gold-400">Heritage</a>
+            <a href="#contact" class="block text-sm tracking-widest uppercase hover:text-gold-400">Contact</a>
+            <div class="pt-4">
+                <a href="https://wa.me/1234567890?text=Hello%20La%20Classe,%20I%20would%20like%20to%20inquire%20about%20your%20bespoke%20services." target="_blank" class="flex items-center justify-center space-x-2 w-full bg-gold-500 text-obsidian py-3 font-semibold text-xs tracking-widest uppercase">
+                    <i data-lucide="message-circle" class="w-4 h-4"></i>
+                    <span>WhatsApp Concierge</span>
                 </a>
             </div>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative h-screen flex items-center justify-center overflow-hidden">
-        <!-- Background Image with Overlay -->
-        <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=2000&q=80" alt="Luxury Private Jet" class="w-full h-full object-cover object-center filter brightness-50 scale-105 transform animate-pulse duration-1000">
-            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/40 to-transparent"></div>
-        </div>
-
-        <div class="relative z-10 max-w-5xl mx-auto text-center px-6 mt-16">
-            <span class="text-champagne uppercase tracking-[0.3em] text-xs md:text-sm font-semibold mb-4 block">
-                The Pinnacle of Private Aviation & Luxury
-            </span>
-            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal tracking-tight text-white mb-8 leading-tight">
-                Beyond <span class="italic font-light text-champagne">First</span> Class.
+    <section class="relative h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center">
+        <div class="absolute inset-0 bg-obsidian/70"></div>
+        <div class="relative max-w-4xl mx-auto text-center px-6 mt-12">
+            <span class="text-gold-400 uppercase tracking-[0.3em] text-xs md:text-sm font-semibold mb-4 block">Bespoke Tailoring & Haute Couture</span>
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-bold tracking-tight mb-6 leading-tight">
+                Elegance in Every <span class="italic text-gold-400">Thread</span>
             </h1>
-            <p class="max-w-2xl mx-auto text-platinum/80 text-base md:text-lg font-light tracking-wide mb-12">
-                Curating borderless journeys, superyacht charters, and uncompromising lifestyle management for global leaders.
+            <p class="text-neutral-300 text-base md:text-lg max-w-2xl mx-auto font-light mb-10 leading-relaxed">
+                Crafting timeless wardrobes for the discerning individual. Where traditional master craftsmanship meets contemporary haute couture.
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-champagne text-obsidian uppercase tracking-widest text-xs font-semibold hover:bg-champagne-light transition-all duration-300">
-                    Inquire For Charter
+                <a href="#collections" class="w-full sm:w-auto bg-gold-500 hover:bg-gold-600 text-obsidian px-8 py-4 font-semibold text-xs tracking-[0.2em] uppercase transition-all">
+                    Explore Collections
                 </a>
-                <a href="#fleet" class="w-full sm:w-auto px-8 py-4 border border-white/20 text-white uppercase tracking-widest text-xs font-semibold hover:border-champagne hover:text-champagne transition-all duration-300">
-                    Explore Fleet
+                <a href="#services" class="w-full sm:w-auto border border-gold-500 text-gold-400 hover:bg-gold-500 hover:text-obsidian px-8 py-4 font-semibold text-xs tracking-[0.2em] uppercase transition-all">
+                    Book Private Fitting
                 </a>
-            </div>
-        </div>
-
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10 hidden md:block">
-            <a href="#fleet" class="flex flex-col items-center text-white/40 hover:text-champagne transition-colors">
-                <span class="text-[10px] tracking-[0.2em] uppercase mb-2">Scroll</span>
-                <div class="w-px h-8 bg-white/20 relative overflow-hidden">
-                    <div class="absolute inset-0 bg-champagne animate-bounce"></div>
-                </div>
-            </a>
-        </div>
-    </section>
-
-    <!-- Stats Bar -->
-    <section class="border-y border-white/10 bg-surface">
-        <div class="max-w-7xl mx-auto px-6 py-12">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div>
-                    <div class="font-serif text-3xl md:text-4xl text-champagne mb-1">4,500+</div>
-                    <div class="text-xs tracking-widest uppercase text-platinum/60">Global Airports</div>
-                </div>
-                <div>
-                    <div class="font-serif text-3xl md:text-4xl text-champagne mb-1">120+</div>
-                    <div class="text-xs tracking-widest uppercase text-platinum/60">Managed Superyachts</div>
-                </div>
-                <div>
-                    <div class="font-serif text-3xl md:text-4xl text-champagne mb-1">24/7</div>
-                    <div class="text-xs tracking-widest uppercase text-platinum/60">Dedicated Concierge</div>
-                </div>
-                <div>
-                    <div class="font-serif text-3xl md:text-4xl text-champagne mb-1">100%</div>
-                    <div class="text-xs tracking-widest uppercase text-platinum/60">Discretion Guaranteed</div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Fleet Section -->
-    <section id="fleet" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
-            <div>
-                <span class="text-champagne uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">Private Aviation</span>
-                <h2 class="font-serif text-3xl md:text-5xl text-white">The LaClasse Fleet</h2>
+    <!-- Brand Values Strip -->
+    <section class="border-y border-neutral-800 bg-charcoal/50 py-8">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="flex flex-col items-center">
+                <i data-lucide="scissors" class="w-8 h-8 text-gold-400 mb-3"></i>
+                <h3 class="font-serif text-lg font-semibold mb-1">Bespoke Masterpiece</h3>
+                <p class="text-neutral-400 text-sm">Handcrafted precisely to your silhouette and personal aesthetic.</p>
             </div>
-            <p class="max-w-md text-platinum/70 text-sm mt-4 md:mt-0">
-                Handpicked heavy jets, ultra-long-range aircraft, and VIP helicopters maintained to the highest global safety standards.
-            </p>
+            <div class="flex flex-col items-center">
+                <i data-lucide="gem" class="w-8 h-8 text-gold-400 mb-3"></i>
+                <h3 class="font-serif text-lg font-semibold mb-1">Finest Fabrics</h3>
+                <p class="text-neutral-400 text-sm">Exclusively sourced Italian silks, Cashmere, and French wools.</p>
+            </div>
+            <div class="flex flex-col items-center">
+                <i data-lucide="crown" class="w-8 h-8 text-gold-400 mb-3"></i>
+                <h3 class="font-serif text-lg font-semibold mb-1">Private Concierge</h3>
+                <p class="text-neutral-400 text-sm">Dedicated styling sessions at our atelier or your private residence.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Collections Section -->
+    <section id="collections" class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-gold-400 uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">Curated Excellence</span>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4">The Haute Couture Lines</h2>
+            <p class="text-neutral-400 text-sm md:text-base">Discover our seasonal masterpieces designed for monumental occasions and executive distinction.</p>
         </div>
 
+        <!-- Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <!-- Jet 1 -->
-            <div class="bg-card border border-white/10 group hover:border-champagne/50 transition-all duration-500">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1583089892994-4402d02c9e88?auto=format&fit=crop&w=1000&q=80" alt="Global 7500" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute top-4 right-4 bg-obs/80 backdrop-blur-md px-3 py-1 border border-white/10 text-xs text-champagne uppercase tracking-widest">
-                        Ultra Long Range
-                    </div>
+            <!-- Item 1 -->
+            <div class="group relative overflow-hidden bg-charcoal border border-neutral-800">
+                <div class="h-[450px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=987&auto=format&fit=crop" alt="Evening Elegance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                 </div>
-                <div class="p-8">
-                    <h3 class="font-serif text-2xl text-white mb-2">Bombardier Global 7500</h3>
-                    <p class="text-platinum/70 text-sm mb-6 font-light">The industry flagship featuring four true living spaces and a dedicated master suite.</p>
-                    <div class="flex items-center justify-between border-t border-white/10 pt-4 text-xs text-platinum/60 tracking-wider uppercase">
-                        <span>Capacity: 14 Passengers</span>
-                        <span>Range: 7,700 nm</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Jet 2 -->
-            <div class="bg-card border border-white/10 group hover:border-champagne/50 transition-all duration-500">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?auto=format&fit=crop&w=1000&q=80" alt="Gulfstream G650ER" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute top-4 right-4 bg-obs/80 backdrop-blur-md px-3 py-1 border border-white/10 text-xs text-champagne uppercase tracking-widest">
-                        Heavy Jet
-                    </div>
-                </div>
-                <div class="p-8">
-                    <h3 class="font-serif text-2xl text-white mb-2">Gulfstream G650ER</h3>
-                    <p class="text-platinum/70 text-sm mb-6 font-light">Unmatched speed and comfort connecting distant global capitals non-stop.</p>
-                    <div class="flex items-center justify-between border-t border-white/10 pt-4 text-xs text-platinum/60 tracking-wider uppercase">
-                        <span>Capacity: 16 Passengers</span>
-                        <span>Range: 7,500 nm</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Jet 3 -->
-            <div class="bg-card border border-white/10 group hover:border-champagne/50 transition-all duration-500">
-                <div class="h-64 overflow-hidden relative">
-                    <img src="https://images.unsplash.com/photo-1519074069444-1ba4ea16d66c?auto=format&fit=crop&w=1000&q=80" alt="Challenger 350" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    <div class="absolute top-4 right-4 bg-obs/80 backdrop-blur-md px-3 py-1 border border-white/10 text-xs text-champagne uppercase tracking-widest">
-                        Super Midsize
-                    </div>
-                </div>
-                <div class="p-8">
-                    <h3 class="font-serif text-2xl text-white mb-2">Challenger 350</h3>
-                    <p class="text-platinum/70 text-sm mb-6 font-light">The ultimate blend of performance, agility, and spacious cabin luxury for regional hops.</p>
-                    <div class="flex items-center justify-between border-t border-white/10 pt-4 text-xs text-platinum/60 tracking-wider uppercase">
-                        <span>Capacity: 9 Passengers</span>
-                        <span>Range: 3,200 nm</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Yachts Section -->
-    <section id="yachts" class="py-32 bg-surface border-y border-white/10">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div>
-                    <span class="text-champagne uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">Maritime Charters</span>
-                    <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Superyachts of Distinction</h2>
-                    <p class="text-platinum/80 text-base font-light mb-8 leading-relaxed">
-                        Navigate the Mediterranean, Caribbean, or uncharted archipelagos aboard our curated collection of mega yachts. Complete with private captains, Michelin-trained culinary crews, and tailored water-sport itineraries.
-                    </p>
-                    <ul class="space-y-4 mb-10">
-                        <li class="flex items-center text-sm text-platinum/90">
-                            <span class="w-1.5 h-1.5 bg-champagne rounded-full mr-3"></span>
-                            Vessels ranging from 40m to 120m+
-                        </li>
-                        <li class="flex items-center text-sm text-platinum/90">
-                            <span class="w-1.5 h-1.5 bg-champagne rounded-full mr-3"></span>
-                            Custom onshore excursions & helicopter landing pads
-                        </li>
-                        <li class="flex items-center text-sm text-platinum/90">
-                            <span class="w-1.5 h-1.5 bg-champagne rounded-full mr-3"></span>
-                            Zero-emission hybrid cruising options available
-                        </li>
-                    </ul>
-                    <a href="#contact" class="inline-block px-8 py-4 bg-champagne text-obsidian uppercase tracking-widest text-xs font-semibold hover:bg-champagne-light transition-all duration-300">
-                        Request Yacht Portfolio
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-90"></div>
+                <div class="absolute bottom-0 left-0 w-full p-6">
+                    <span class="text-gold-400 text-xs tracking-widest uppercase mb-1 block">Eveningwear</span>
+                    <h3 class="font-serif text-2xl font-semibold mb-2">Noir Symphony</h3>
+                    <p class="text-neutral-300 text-xs mb-4 line-clamp-2">Exquisite silk-velvet gowns tailored for timeless sophistication.</p>
+                    <a href="https://wa.me/1234567890?text=I%20am%20interested%20in%20the%20Noir%20Symphony%20collection." target="_blank" class="inline-flex items-center space-x-2 text-gold-400 hover:text-gold-300 text-xs tracking-widest uppercase font-semibold">
+                        <span>Inquire via WhatsApp</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
                     </a>
                 </div>
-                <div class="grid grid-cols-2 gap-4">
-                    <div class="space-y-4">
-                        <img src="https://images.unsplash.com/photo-1569263979104-865ab9cd8d5c?auto=format&fit=crop&w=800&q=80" alt="Superyacht" class="w-full h-80 object-cover border border-white/10">
-                    </div>
-                    <div class="space-y-4 pt-12">
-                        <img src="https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=800&q=80" alt="Luxury Yacht Interior" class="w-full h-80 object-cover border border-white/10">
-                    </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="group relative overflow-hidden bg-charcoal border border-neutral-800">
+                <div class="h-[450px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?q=80&w=1071&auto=format&fit=crop" alt="Executive Bespoke" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-90"></div>
+                <div class="absolute bottom-0 left-0 w-full p-6">
+                    <span class="text-gold-400 text-xs tracking-widest uppercase mb-1 block">Tailoring</span>
+                    <h3 class="font-serif text-2xl font-semibold mb-2">The Sovereign Suit</h3>
+                    <p class="text-neutral-300 text-xs mb-4 line-clamp-2">Hand-stitched Italian wool suits engineered for supreme executive presence.</p>
+                    <a href="https://wa.me/1234567890?text=I%20am%20interested%20in%20The%20Sovereign%20Suit%20collection." target="_blank" class="inline-flex items-center space-x-2 text-gold-400 hover:text-gold-300 text-xs tracking-widest uppercase font-semibold">
+                        <span>Inquire via WhatsApp</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="group relative overflow-hidden bg-charcoal border border-neutral-800">
+                <div class="h-[450px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1020&auto=format&fit=crop" alt="Bridal Couture" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                </div>
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-transparent to-transparent opacity-90"></div>
+                <div class="absolute bottom-0 left-0 w-full p-6">
+                    <span class="text-gold-400 text-xs tracking-widest uppercase mb-1 block">Bridal Atelier</span>
+                    <h3 class="font-serif text-2xl font-semibold mb-2">Imperial Wedding</h3>
+                    <p class="text-neutral-300 text-xs mb-4 line-clamp-2">Custom bridal gowns adorned with intricate French lace and hand embroidery.</p>
+                    <a href="https://wa.me/1234567890?text=I%20am%20interested%20in%20the%20Imperial%20Wedding%20collection." target="_blank" class="inline-flex items-center space-x-2 text-gold-400 hover:text-gold-300 text-xs tracking-widest uppercase font-semibold">
+                        <span>Inquire via WhatsApp</span>
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Concierge Experience -->
-    <section id="concierge" class="py-32 px-6 max-w-7xl mx-auto">
-        <div class="text-center max-w-3xl mx-auto mb-20">
-            <span class="text-champagne uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">Elite Lifestyle Management</span>
-            <h2 class="font-serif text-3xl md:text-5xl text-white mb-6">Unrestricted Access</h2>
-            <p class="text-platinum/70 text-base font-light">
-                Beyond physical transit, LaClasse offers seamless access to the world’s most exclusive events, private estates, and secured reservations.
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-charcoal/30 border-y border-neutral-800 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-gold-400 uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">Atelier Services</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold mb-4">The Bespoke Experience</h2>
+                <p class="text-neutral-400 text-sm md:text-base">Every garment undergoes a rigorous multi-stage creation process led by master tailors.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="p-8 bg-charcoal border border-neutral-800">
+                    <span class="text-gold-400 font-serif text-2xl font-bold mb-4 block">01</span>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Private Consultation</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">Discuss your stylistic preferences, fabric selection, and design vision with our principal stylists.</p>
+                </div>
+                <div class="p-8 bg-charcoal border border-neutral-800">
+                    <span class="text-gold-400 font-serif text-2xl font-bold mb-4 block">02</span>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Precision Measurement</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">Over 30 unique anatomical data points captured to guarantee an immaculate fit.</p>
+                </div>
+                <div class="p-8 bg-charcoal border border-neutral-800">
+                    <span class="text-gold-400 font-serif text-2xl font-bold mb-4 block">03</span>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Handcrafting & Basting</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">Master artisans construct your garment by hand in our private atelier over 60-80 hours.</p>
+                </div>
+                <div class="p-8 bg-charcoal border border-neutral-800">
+                    <span class="text-gold-400 font-serif text-2xl font-bold mb-4 block">04</span>
+                    <h3 class="font-serif text-xl font-semibold mb-3">Final Fitting & Delivery</h3>
+                    <p class="text-neutral-400 text-sm leading-relaxed mb-6">Final adjustments performed to perfection before presentation in our signature garment bag.</p>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="https://wa.me/1234567890?text=Hello%20La%20Classe,%20I%20would%20like%20to%20schedule%20a%20private%20consultation." target="_blank" class="inline-flex items-center space-x-3 bg-gold-500 hover:bg-gold-600 text-obsidian px-8 py-4 font-semibold text-xs tracking-[0.2em] uppercase transition-all">
+                    <i data-lucide="calendar" class="w-4 h-4"></i>
+                    <span>Schedule Consultation via WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Heritage Section -->
+    <section id="heritage" class="py-24 px-6 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div>
+            <span class="text-gold-400 uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">Our Legacy</span>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6 leading-tight">Decades of Uncompromising Craftsmanship</h2>
+            <p class="text-neutral-300 text-base leading-relaxed mb-6">
+                Founded on the pillars of traditional European tailoring and modern minimalist architecture, La Classe represents the pinnacle of personal luxury. We reject mass production in favor of absolute dedication to the individual.
             </p>
+            <p class="text-neutral-400 text-sm leading-relaxed mb-8">
+                Every stitch, buttonhole, and drape is executed with meticulous precision, ensuring your wardrobe remains a lifelong statement of distinction.
+            </p>
+            <div class="grid grid-cols-2 gap-6 border-t border-neutral-800 pt-6">
+                <div>
+                    <h4 class="font-serif text-3xl font-bold text-gold-400 mb-1">100%</h4>
+                    <p class="text-neutral-400 text-xs uppercase tracking-wider">Hand-Finished Garments</p>
+                </div>
+                <div>
+                    <h4 class="font-serif text-3xl font-bold text-gold-400 mb-1">35+</h4>
+                    <p class="text-neutral-400 text-xs uppercase tracking-wider">Master Artisans</p>
+                </div>
+            </div>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-card p-10 border border-white/10 hover:border-champagne/40 transition-colors">
-                <div class="text-champagne font-serif text-4xl mb-6">01</div>
-                <h3 class="font-serif text-xl text-white mb-4">Global Event Access</h3>
-                <p class="text-platinum/70 text-sm font-light leading-relaxed">
-                    VIP front-row access to international film festivals, Formula 1 paddocks, private art auctions, and sold-out gala performances.
-                </p>
+        <div class="relative">
+            <div class="aspect-[4/5] overflow-hidden border border-neutral-800">
+                <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?q=80&w=1074&auto=format&fit=crop" alt="Tailoring Atelier" class="w-full h-full object-cover">
             </div>
-            <div class="bg-card p-10 border border-white/10 hover:border-champagne/40 transition-colors">
-                <div class="text-champagne font-serif text-4xl mb-6">02</div>
-                <h3 class="font-serif text-xl text-white mb-4">Private Real Estate</h3>
-                <p class="text-platinum/70 text-sm font-light leading-relaxed">
-                    Off-market alpine chalets, private Mediterranean islands, and penthouse sanctuaries secured for short or long-term stays.
-                </p>
-            </div>
-            <div class="bg-card p-10 border border-white/10 hover:border-champagne/40 transition-colors">
-                <div class="text-champagne font-serif text-4xl mb-6">03</div>
-                <h3 class="font-serif text-xl text-white mb-4">Security & Detail</h3>
-                <p class="text-platinum/70 text-sm font-light leading-relaxed">
-                    Discreet executive protection, armored ground transport, and diplomatic-level clearance wherever your itinerary leads.
-                </p>
+            <div class="absolute -bottom-6 -left-6 bg-charcoal p-6 border border-neutral-800 max-w-xs hidden sm:block">
+                <p class="font-serif italic text-gold-400 text-sm mb-2">"True luxury is having garments made solely for who you are."</p>
+                <span class="text-xs text-neutral-400 uppercase tracking-widest">- Master Tailor, La Classe</span>
             </div>
         </div>
     </section>
 
-    <!-- Contact / Booking Form -->
-    <section id="contact" class="py-32 bg-surface border-t border-white/10 relative">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-16">
-                <span class="text-champagne uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">Begin Your Journey</span>
-                <h2 class="font-serif text-3xl md:text-5xl text-white mb-4">Inquire With LaClasse</h2>
-                <p class="text-platinum/70 text-sm">Our aviation advisors and concierge directors are available 24/7 to process your request.</p>
+    <!-- Contact / Booking Section -->
+    <section id="contact" class="py-24 bg-charcoal/50 border-t border-neutral-800 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="text-gold-400 uppercase tracking-[0.2em] text-xs font-semibold mb-3 block">Atelier Reception</span>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold mb-6">Begin Your Bespoke Journey</h2>
+            <p class="text-neutral-300 text-base max-w-xl mx-auto mb-10">
+                Connect directly with our senior concierge via WhatsApp to secure your private viewing or bespoke fitting appointment.
+            </p>
+            <a href="https://wa.me/1234567890?text=Hello%20La%20Classe,%20I%20would%20like%20to%20book%20an%20appointment%20at%20the%20atelier." target="_blank" class="inline-flex items-center space-x-3 bg-gold-500 hover:bg-gold-600 text-obsidian px-10 py-5 font-semibold text-xs tracking-[0.2em] uppercase transition-all shadow-lg">
+                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                <span>Open WhatsApp Concierge</span>
+            </a>
+            <div class="mt-12 flex flex-col sm:flex-row items-center justify-center gap-8 text-neutral-400 text-sm">
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-gold-400"></i>
+                    <span>Rue du Faubourg Saint-Honoré, Paris</span>
+                </div>
+                <div class="flex items-center space-x-2">
+                    <i data-lucide="clock" class="w-4 h-4 text-gold-400"></i>
+                    <span>By Appointment Only</span>
+                </div>
             </div>
-
-            <form class="space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-platinum/60 mb-2">Full Name</label>
-                        <input type="text" class="w-full bg-obsidian border border-white/10 px-4 py-4 text-white text-sm focus:outline-none focus:border-champagne transition-colors" placeholder="Lord / Lady / Mr. Surname" required>
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-platinum/60 mb-2">Secure Email</label>
-                        <input type="email" class="w-full bg-obsidian border border-white/10 px-4 py-4 text-white text-sm focus:outline-none focus:border-champagne transition-colors" placeholder="name@domain.com" required>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-platinum/60 mb-2">Service Requested</label>
-                        <select class="w-full bg-obsidian border border-white/10 px-4 py-4 text-white text-sm focus:outline-none focus:border-champagne transition-colors">
-                            <option>Private Jet Charter</option>
-                            <option>Superyacht Rental</option>
-                            <option>Complete Lifestyle Management</option>
-                            <option>Corporate Partnership</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label class="block text-xs uppercase tracking-widest text-platinum/60 mb-2">Preferred Departure / Location</label>
-                        <input type="text" class="w-full bg-obsidian border border-white/10 px-4 py-4 text-white text-sm focus:outline-none focus:border-champagne transition-colors" placeholder="e.g., Geneva (GVA) / Monaco">
-                    </div>
-                </div>
-
-                <div>
-                    <label class="block text-xs uppercase tracking-widest text-platinum/60 mb-2">Itinerary Details & Special Requirements</label>
-                    <rows="4" class="w-full bg-obsidian border border-white/10 p-4 text-white text-sm focus:outline-none focus:border-champagne transition-colors h-32 resize-none block" placeholder="Please detail your flight dates, passenger count, or specific requests..."></textarea>
-                </div>
-
-                <div class="text-center pt-4">
-                    <button type="submit" class="px-12 py-5 bg-champagne text-obsidian uppercase tracking-widest text-xs font-semibold hover:bg-champagne-light transition-all duration-300">
-                        Submit Confidential Inquiry
-                    </button>
-                </div>
-            </form>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-obsidian border-t border-white/10 py-16">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            <div>
-                <span class="font-serif text-2xl tracking-widest text-champagne uppercase font-bold block mb-4">
-                    La Classe
-                </span>
-                <p class="text-platinum/60 text-xs leading-relaxed">
-                    Redefining high-end mobility and elite concierge solutions for the world’s most discerning clientele. Uncompromising safety, complete discretion.
-                </p>
+    <footer class="bg-obsidian border-t border-neutral-800 py-12 px-6">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="text-center md:text-left">
+                <span class="font-serif text-2xl tracking-widest text-gold-400 uppercase block mb-1">La Classe</span>
+                <p class="text-neutral-500 text-xs tracking-wider">Haute Couture & Bespoke Tailoring Atelier</p>
             </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest text-white font-semibold mb-4">Headquarters</h4>
-                <p class="text-platinum/60 text-xs leading-relaxed">
-                    Rue du Rhône 42<br>
-                    1204 Geneva<br>
-                    Switzerland
-                </p>
-            </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest text-white font-semibold mb-4">Global Hubs</h4>
-                <p class="text-platinum/60 text-xs leading-relaxed">
-                    London • Dubai • New York • Singapore • Monaco
-                </p>
-            </div>
-            <div>
-                <h4 class="text-xs uppercase tracking-widest text-white font-semibold mb-4">Direct Desk</h4>
-                <p class="text-platinum/60 text-xs leading-relaxed">
-                    +41 22 819 0000<br>
-                    concierge@laclasse.com<br>
-                    Available 24/7/365
-                </p>
-            </div>
-        </div>
-        <div class="max-w-7xl mx-auto px-6 border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-platinum/40">
-            <p>&copy; 2025 LaClasse S.A. All rights reserved.</p>
-            <div class="flex space-x-6 mt-4 sm:mt-0">
-                <a href="#" class="hover:text-champagne transition-colors">Privacy Policy</a>
-                <a href="#" class="hover:text-champagne transition-colors">Terms of Charter</a>
-                <a href="#" class="hover:text-champagne transition-colors">Regulatory Compliance</a>
+            <p class="text-neutral-600 text-xs">
+                &copy; 2025 La Classe Atelier. All rights reserved.
+            </p>
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/1234567890" target="_blank" class="text-neutral-400 hover:text-gold-400 transition-colors">
+                    <i data-lucide="message-circle" class="w-5 h-5"></i>
+                </a>
+                <a href="#" class="text-neutral-400 hover:text-gold-400 transition-colors">
+                    <i data-lucide="instagram" class="w-5 h-5"></i>
+                </a>
             </div>
         </div>
     </footer>
 
+    <!-- Script Initialization -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on link click
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
