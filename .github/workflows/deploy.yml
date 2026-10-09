@@ -1,0 +1,19 @@
+name: Dual Cloud Deployment
+on: [push]
+jobs:
+  ship-application:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy Primary (Cloudflare Pages)
+        id: cloudflare_deploy
+        continue-on-error: true
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: "client-a----laclasse"
+          directory: "."
+      - name: Fallback to Secondary (Vercel Edge)
+        if: steps.cloudflare_deploy.outcome == 'failure'
+        run: npx vercel --token=${{ secrets.VERCEL_TOKEN }} --prod --yes
